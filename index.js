@@ -1,5 +1,30 @@
 const apiKey = API_KEY;
 
+const recentCitiesSelect = document.getElementById("recentCities");
+
+// Load from localStorage
+let searchedCities = JSON.parse(localStorage.getItem("searchedCities")) || [];
+
+// Populate dropdown from stored cities
+function populateDropdown() {
+  recentCitiesSelect.innerHTML = `<option value="" disabled selected>Select a previously searched city</option>`;
+  searchedCities.forEach(city => {
+    const option = document.createElement("option");
+    option.value = city;
+    option.textContent = city;
+    recentCitiesSelect.appendChild(option);
+  });
+}
+
+// Add new city to localStorage and dropdown
+function addCityToDropdown(city) {
+  if (!searchedCities.includes(city)) {
+    searchedCities.push(city);
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
+    populateDropdown();
+  }
+}
+
 // Fetch forecast
 async function fetchWeather(city = "Mumbai") {
   try {
@@ -9,6 +34,7 @@ async function fetchWeather(city = "Mumbai") {
     const data = await response.json();
     updateUI(data);
     renderForecast(data.forecast.forecastday);
+    addCityToDropdown(data.location.name); // Save after successful fetch
   } catch (error) {
     console.error("Error fetching weather:", error);
   }
@@ -24,7 +50,7 @@ function updateUI(data) {
   document.getElementById("conditionText").textContent = data.current.condition.text;
 }
 
-// Render 5-day forecast card
+// Render 5-day forecast cards
 function renderForecast(forecastDays) {
   const container = document.getElementById("forecastContainer");
   container.innerHTML = ""; 
@@ -67,5 +93,14 @@ document.getElementById("locBtn").addEventListener("click", () => {
   }
 });
 
+// Event: Dropdown select
+recentCitiesSelect.addEventListener("change", function () {
+  const selectedCity = this.value;
+  if (selectedCity) {
+    fetchWeather(selectedCity);
+  }
+});
+
 // Initial load
+populateDropdown();
 fetchWeather("Mumbai");

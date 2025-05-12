@@ -100,3 +100,26 @@ h1 {
   margin: 0.5rem 0;
   font-size: 0.95rem;
 }
+
+#recentCities {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #004080;
+  background-color: #f0f8ff;
+  border: 1px solid #0077cc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#recentCities:hover {
+  border-color: #005fa3;
+}
+
+#recentCities:focus {
+  border-color: #003f7f;
+  background-color: #e6f2ff;
+}
