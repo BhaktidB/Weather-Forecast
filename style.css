@@ -1,0 +1,102 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6f0ff;
+  color: #003366;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+  color: #004080;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.seachCity {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.seachCity input,
+.seachCity button {
+  padding: 0.6rem 1rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.seachCity input {
+  width: 200px;
+  border: 1px solid #ccc;
+}
+
+.seachCity button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.seachCity button:hover {
+  background-color: #0056b3;
+}
+
+.dashbaord {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 128, 0.1);
+}
+
+.main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main-info div {
+  flex: 1 1 45%;
+  padding: 1rem;
+}
+
+#weatherIcon {
+  width: 80px;
+  height: 80px;
+}
+
+.forecast {
+  margin-top: 2rem;
+}
+
+.forecast-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.forecast-card {
+  background-color: #f0f8ff;
+  border: 1px solid #b3d1ff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 128, 0.05);
+}
+
+.forecast-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.forecast-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}

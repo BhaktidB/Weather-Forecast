@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Weather Forecast</h1>
+  <div class="container">
+    <div class="seachCity">
+      <h4>Enter a City Name</h4>
+      <input type="text" name="cityInput" id="cityInput" placeholder="Mumbai" />
+      <button id="searchBtn">Search</button>
+      <p>or</p>
+      <button id="locBtn">Use Current Location</button>
+    </div>
+
+    <div class="dashbaord">
+      <div class="main-info">
+        <div>
+          <p id="displayCity">City Name <span id="date"></span></p>
+          <p id="temperature">Temperature</p>
+          <p id="wind">Wind Speed</p>
+          <p id="humidity">Humidity</p>
+        </div>
+
+        <div>
+          <img id="weatherIcon" src="" alt="Weather Icon" />
+          <p id="conditionText">Condition</p>
+        </div>
+      </div>
+
+      <div class="forecast">
+  <h3>5 - Day Forecast</h3>
+  <div id="forecastContainer" class="forecast-cards"></div>
+</div>
+
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
